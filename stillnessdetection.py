@@ -31,13 +31,12 @@ def stillnessdetection():
         # print an alert message if no motion is detected for over 15 seconds
         if time.time() - last > 15:
             print('alert')
-            st.markdown("<h1 style='text-align: center; color: red;'>ALERT!</h1>", unsafe_allow_html=True)
+            st.write("ALERT!")
             break
         cv2.imshow("Motion Detection", frame1)  
         frame1 = frame2  
         ret, frame2 = cap.read()  
         
-        # print(flag)
         flag = False
 
         key = cv2.waitKey(1)  
