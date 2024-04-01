@@ -4,7 +4,7 @@ from cvzone.HandTrackingModule import HandDetector
 import streamlit as st
 
 
-def alertFingers(): 
+def emergencySignalDetection(): 
     cap = cv2.VideoCapture(0)
     detector = HandDetector(detectionCon=0.8, maxHands=2)
 
@@ -24,7 +24,7 @@ def alertFingers():
                     if start_time == 0:
                         start_time = time.time()
                     elif (time.time() - start_time) >= 5 and not alert_printed:
-                        st.write("ALERT Fingers!")
+                        st.markdown("<h1 style='text-align: center; color: red;'>EMERGENCY SIGNAL!</h1>", unsafe_allow_html=True)
                         alert_printed = True
                         break
                 else: 

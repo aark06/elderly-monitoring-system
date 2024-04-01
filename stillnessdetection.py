@@ -2,7 +2,7 @@ import cv2
 import time
 import streamlit as st
 
-def stillnessdetection():
+def stillnessDetection():
     cap = cv2.VideoCapture(0)  
     ret, frame1 = cap.read()  
     last = time.time()
@@ -31,7 +31,7 @@ def stillnessdetection():
         # print an alert message if no motion is detected for over 15 seconds
         if time.time() - last > 15:
             print('alert')
-            st.write("ALERT!")
+            st.markdown("<h1 style='text-align: center; color: red;'>STILLNESS ALERT!</h1>", unsafe_allow_html=True)
             break
         cv2.imshow("Motion Detection", frame1)  
         frame1 = frame2  
